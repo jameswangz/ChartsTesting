@@ -35,6 +35,10 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func animate(sender: AnyObject) {
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+    }
+    
     func randomValues(count: Int) -> [Double] {
         var values = [Double]()
         
@@ -68,8 +72,7 @@ class ViewController: UIViewController {
         let chartData = LineChartData(xVals: dataPoints, dataSets: dataSets)
         chartView.data = chartData
         chartView.xAxis.labelPosition = .Bottom
-        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-    
+        animate("")
         let limitLine = ChartLimitLine(limit: 10.0, label: "Threshold")
         chartView.rightAxis.addLimitLine(limitLine)
     }
